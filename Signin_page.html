@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin:0;
+        }
+        .flex-container {
+            position: absolute;
+            top:4px;
+            width: 1296px;
+            height:70px;
+            display: flex;
+            align-items: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            z-index: 3;
+        }
+        .logo-flex {
+             position: absolute;
+             display: flex;
+             width: 100%;
+             align-items: center;
+             justify-content: left;
+             margin-left: 20px;
+             gap:6px;
+             z-index: -9;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="logo-flex">
+            <div class="flex-item"><img src="../images/logo.svg"></div>
+            <div class="flex-item learning-hub-title bold" style="color:white; font-style: italic;">LEARNING HUB</div>
+    </div>
+</div>
+<div class="close">
+    <a href="firstpage.html"><img src="../images/close.svg"></a>
+</div>
+
+<div class="total-container">
+    <div class="bck-1" >
+        <img style="height:100vh" src="../images/sign-in-image.png">
+    </div>
+    <div class="form-container">
+        <form>
+            <h2>Sign In</h2>
+          <label for="fname">Username*</label>
+          <br>
+          <input type="textbox" id="fname" name="firstname" placeholder="Username" style="height:52px;width:442px; "">
+          <br>
+          <br>
+          <label for="lname">Password*</label>
+          <br>
+          <input type="password" id="lname" name="lastname" placeholder="Password" style="height:52px;width:442px">
+          <br>
+          <br>  
+         <button class="sigin-button"><a href="course-catergory.html" style="text-decoration: none; color: black;">Sign In</a></button><br>
+         <br>
+         <div class="A">
+            <input type="checkbox" id="Remme" name="interest" value="Remember me">
+            <label for="Remme">Remember me</label>
+            <div class="forget-password">
+                <p>Forget Password?</p>
+             </div>
+         </div>
+        </form>
+
+    </div>
+</div>
+    
+</body>
+</html>

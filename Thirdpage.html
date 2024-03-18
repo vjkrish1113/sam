@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Education Application</title>
+    <style>
+        .bck {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-image:  linear-gradient(
+          rgb(0 0 0 / 9%), 
+          rgb(0 0 0 / 54%)),url(../images/background.png);
+            height: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+       
+        .header {
+            display: flex;
+            position: fixed;
+            z-index: 1000;
+            height: 50px;
+            width: 100%; 
+            padding: 18px;
+            -webkit-transition: all ease-out .5s;
+            -moz-transition: all ease-out .5s;
+            -o-transition: all ease-out .5s;
+            transition: all ease-out .5s;
+        }
+
+        .active {
+            background-color: black;
+        }
+        .search-icon {
+            position: relative;
+            top: 14px;
+            right: 30px;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+        }
+         .search-input{
+            width: 400px;
+            height: 33px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border-radius: 10px;
+            padding-left: 15px;
+            border: none;
+         }
+          .search-flex{
+            width: 98%;
+            align-items: center;
+            justify-content: right;
+            display: flex;
+        }
+        .search-flex:hover .search-input {
+            border-color: #666;
+            box-shadow: 0px 1px 15px rgb(255, 0, 0);
+        }
+        .search-flex:hover .search-icon {
+            transform: translateY(-50%) scale(1.2);
+            opacity: 1;
+        }
+        .logo-flex {
+            position: fixed;
+             display: flex;
+             width: 100%;
+             align-items: center;
+             justify-content: left;
+             margin-left: 20px;
+             z-index: -9;
+        }
+        .flex-container {
+            position: fixed;
+            top:4px;
+            width: 100%;
+            z-index: 2;
+            height:70px;
+            display: flex;
+            align-items: center; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .learning-hub-title{
+            margin-left: 6px;
+        }
+        .user-icon{
+            margin-right: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 47px;
+            line-height: 35px;
+            border-radius: 50%;
+            font-size: 14px;
+            color: black;
+            background: #ffffff;
+        }
+       .flex-items{
+        display: flex;
+            
+        } 
+        .search-flex{
+            justify-content: right;
+        }
+        .signin
+        {
+            position: fixed;
+            justify-content: right;
+            right:107px;
+        }
+        .btn {
+        border: 0px solid #fff;
+        padding: 1em 2em;
+        min-width: 200px;
+        min-height: 50px;
+        position: relative;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        transition: background-color 0.5s linear 0.5s;
+    }
+    .sign-in-btn {
+        margin-right: 26px;
+        width: 97px;
+        height: 33px;
+        background: #FFFFFF;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+    .sign-in-btn::after {
+        content: "";
+        display: block;
+        background: none;
+        position: absolute;
+        inset: 0;
+        transition: all 0.5s linear;
+        transform: scaleX(0);
+    }
+    .sign-in-btn:hover {
+        background-color: #0ebac5;
+        color: #fff;
+    }
+        .maincontents-container{
+            top: 108px;
+            position: absolute;
+            display: flex
+            justify-contents : center;
+            text-align: center;
+            width: 100%;
+        }
+        .h1{
+            margin-top: 35px;
+            font: normal normal normal 60px/80px Segoe UI;
+            color: #FEFAFA;
+        }
+        .h2{
+            font: normal normal normal 20px/27px Segoe UI;
+            color: #FEFAFA;
+        }
+
+        .marg {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+       
+        .fle {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            font-size: 30px;
+            gap: 20px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top:120px;
+        }
+        
+        .h2{
+            margin-bottom: 60px;
+        }
+         .bt {
+            justify-content: center;
+            align-items: center;
+            margin-top:15px;
+        }
+       .button-text {
+            justify-content: center;
+            align-items: center;
+            min-width: 150px;
+            min-height: 38px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 400;
+            text-decoration: none;
+            background-color: #E6DFDF;
+            color: black;
+            transition: background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 15px;
+        }
+        .button-text:hover {
+                background-color: #157347;
+                color:white;
+                background-color:#0ebac5;
+        }
+        .button-text:active {
+                box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+        }
+        .arrow-icon {
+                margin-left: 10px;
+                transition: transform 0.1s ease;    
+        }
+        .button-text:hover .arrow-icon {
+                transform: translateX(5px);
+        }
+        .button-text:hover .arrow-icon .black-arrow{
+            fill:#FFFFFF;
+        }
+        @keyframes play {
+            0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+            40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
+            100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
+        }
+        .play {
+            transform-origin: 50% 50%;
+            animation: jump .5s linear alternate infinite;
+            margin-top: 75px;
+            cursor: pointer;
+        }
+        /* .play-logo:hover  {
+            transform: scale(1.5);
+        } */
+        .play-logo:hover{
+            transform: scale(1.5);
+        }
+        .play-content{
+            margin-top: 8px;
+            font: normal normal 600 15px/20px Segoe UI;
+        }
+        .chat{
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            width: 98%;
+            margin-right: 50px;
+            position: fixed;
+            bottom: 10%;
+        }
+       
+        .aboutus-box {
+            width: 104px;
+            height: 36px;
+            padding-left: 5px;
+            border: none;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            background-color: #CEBC81;
+            position: relative;
+            top: 1021px;
+            left: 186px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+             .about-img {
+                position: relative;
+                top: 199px;
+                height: 224px;
+                left: -900px;
+            }
+
+            .ab-img-transition {
+                animation: moveAboutImg 2s forwards ease;
+            }
+
+            @keyframes moveAboutImg {
+                from {
+                left: -900px;
+                }
+                to {
+                left: 291px;
+                }
+            }
+
+            .mission-img {
+                position: relative;
+                left: -252px;
+                top: 80px;
+                height: 213px;
+        }
+
+        .mission-img-transition {
+            animation: moveMissionImg 2s forwards ease;
+        }
+
+            @keyframes moveMissionImg {
+                from {left: 1000px;}
+            to {right: 300px;}
+            }
+
+            .whoweare-img {
+                position: relative;
+                top: -19px;
+                height: 224px;
+            }
+
+            .wwa-img-transition {
+                animation: whoWeAreImg 2s forwards ease;
+            }
+
+            @keyframes whoWeAreImg {
+                from {
+                left: -1000px;
+                }
+                to {
+                left: 300px;
+                }
+            }
+        
+        .content-2{
+                position: relative;
+                top:871px;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;    
+                width:100%;
+        }
+        .about-us {
+                position: relative;
+                width: 590px;
+                height: 141px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                left:-169px;
+        }
+
+        .ab-transition {
+                animation: moveAboutUs 2s forwards ease;
+        }
+
+        @keyframes moveAboutUs {
+                from {left: 1000px;}
+                to {right: 300px;}
+        }
+
+
+            .mission {
+                position: relative;
+                width: 619px;
+                height: 141px;           
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                left: 224px;
+                top: -107px;
+            }   
+           
+            .mission-transition{
+                animation:moveMission 2s forwards ease;
+    
+            }
+            
+            @keyframes moveMission {
+                from {left: 1000px;}
+                to {right: 300px;}
+            }
+
+             .whoweare {
+                position: relative;
+                width: 590px;
+                height: 141px;
+                left: -127px;
+                top: -225px;
+            }
+
+            .wwa-transition {
+                animation: moveWhoWeAre 2s forwards ease; /* corrected animation name */
+            }
+
+            @keyframes moveWhoWeAre {
+                from {
+                    left: 1000px;
+                }
+                to {
+                    right: 300px; /* corrected property */
+                }
+            }
+
+       
+
+            .app{
+                padding: 22px 5px 3px 31px;
+                background-color: #FFFFFF;
+                border-color: black;
+                border-radius: 30px;
+                text-align: left;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 15px;
+            }
+            .bold{
+                font-weight: 600;
+            }
+            .bold1{
+                font-weight: 700;
+            }
+        
+        
+            .pricing-box {
+                width: 104px;
+                height: 36px;
+                padding-left: 5px;
+                border: none;
+                display: flex;
+                justify-content: center; 
+                align-items: center; 
+                background-color: #CEBC81;
+                position: relative;
+                top: 800px;
+                left: 186px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .pricing-container {
+            display: flex;
+            position: relative;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            top: 854px;
+            width: 100%;
+            }
+
+            .container>div {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            width: 100%;
+            font-weight: 500px;
+            }
+
+            .basic,
+            .premium,
+            .pro {
+            background-color: #B7B8AE;
+            width: 275px;
+            height: 500px;
+            justify-content: center;
+            text-align: center;
+            }
+
+            .head {
+            font-size: 22px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            }
+
+            .cir1,
+            .cir2,
+            .cir3 {
+            width: 126px;
+            height: 126px;
+            border-radius: 50%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            color: black;
+            margin-top:23px;
+            margin-left: 72px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            }
+
+            ul {
+            display: block;
+            list-style-type: none;
+            padding:2px;
+            text-align: left;
+            width: 84%;
+            position: relative;
+            bottom: 8px;
+            top: 45px;
+            left: 25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            ul1 {
+            display: block;
+            list-style-type: none;
+            text-align: left;
+            width: 84%;
+            position: relative;
+            bottom: 12px;
+            top: 4px;
+            left: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .but2 {
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            width: 210px;
+            height: 61px;
+            font-size: 22px;
+            position: relative;
+            justify-content: center;
+            top: 10px;
+            }
+
+            .but1,
+            .but3 {
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            width: 210px;
+            height: 61px;
+            font-size: 22px;
+            position: relative;
+            justify-content: center;
+            top: 100px;
+            }
+
+            .basic:hover {
+            transform: scale(1.1);
+            }
+
+            .basic:hover .cir1 {
+            color: white;
+            background-color: red;
+            }
+
+            .basic:hover .but1 {
+            color: white;
+            background-color: red;
+            transform: scale(1.1);
+            }
+
+            .pro:hover {
+            transform: scale(1.1);
+            }
+
+            .pro:hover .cir2 {
+            color: white;
+            background-color: red;
+            }
+
+            .pro:hover .but2 {
+            color: white;
+            background-color: red;
+            transform: scale(1.1);
+            }
+
+            .premium:hover {
+            transform: scale(1.1);
+            }
+
+            .premium:hover .cir3{
+            color: white;
+            background-color: red;
+            }
+
+            .premium:hover .but3 {
+            color: white;
+            background-color: red;
+            transform: scale(1.1);
+            }
+            .contact-container{
+               left:25px;
+            }
+
+    
+        .contactus-box {
+            width: 104px;
+            height: 36px;
+            padding-left: 5px;
+            border: none;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            background-color: #CEBC81;
+            position: relative;
+            top: 1000px;
+            left: 186px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .contactus{
+            top: -13px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            left: 235px;
+         }
+        .conct1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            left:500px;
+            border-radius:4px;
+        }
+        .contactus-outerbox{
+            width: 898px;
+            height: 510px;
+            background-color: #F6E4E4;
+            display: grid;
+            align-items: center;
+            position: relative;
+            top: 1082px;
+            left: 574px;
+            }
+        #fname,#lname{
+            width:369px;
+            height:39px;
+        }
+        .b{
+            width:111px;
+            height:34px;
+            border-radius: 17px;
+            border:none;
+            color:black;
+            background: color:#A1A4BC;
+        }
+        .conct{
+            margin: 12px 15px;
+        }
+        .contactus-2{
+            display: grid;
+            position: relative;
+            justify-content: left;
+            align-items: start;
+            width: 352px;
+            height: 441px;
+            background-color: #595791;
+            top: 609px;
+            left: 416px;
+            padding:5px 5px 5px 5px;
+        }
+        .conct-head{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 25px;
+            color: white;
+            margin-left:20px;
+        } 
+        .contact-leftbox{
+            display: flex;
+            justify-content: left;
+            
+        }
+        .write{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+            color: white;
+            font-weight: 400;
+        } 
+       
+        .contact-leftbox {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+            margin-top: 2px;
+            justify-content: center;
+            padding-right: 56px;
+            padding-top: 25px;
+        }
+
+        .contact-leftbox div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-leftbox img {
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .contactus-transition {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .contact-leftbox.animate {
+            animation: slideInLeft 1s ease forwards;
+        }
+        .b:hover {
+            
+            color:#000000;
+            font-weight: 600;
+        
+            transform: scale(1.2);
+        }
+        .footer{
+            width:102%;
+            background-color: #FFFFFF;
+            height: 39px;
+            top:676px;
+            position: relative;
+            /* justify-content: center; */
+            
+        }
+        .footer {
+        display: flex;
+        gap:1150px;
+        align-items: center;
+         }
+
+        .footer p {
+            margin: 0;
+        }
+        .l{
+            margin-left: 30px;
+        }
+        body{
+            overflow-x: hidden;
+            margin:0;
+        }
+        .red-circle {
+            position: absolute;
+            top: 42px;
+            right: 107px;
+            width: 14px;
+            height: 14px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bck">
+    </div>
+    <div class="chat">
+        <div>
+          <div class="playsvg"><img src="../images/chat.svg"></div>
+        </div>
+    </div> 
+    <div class="header">
+        <div class="flex-container ">
+            <div class="logo-flex">
+            <div class="flex-item"><img src="../images/logo.svg"></div>
+            <div class="flex-item learning-hub-title bold" style="color:white; font-style: italic;">LEARNING HUB</div>
+        </div>
+        <div class="search-flex">
+            <div class="flex-items">
+                <div class="search-container ">
+                    <input type="textbox" placeholder="Search your favorite course" class="search-input" >
+                    <img src="../images/search.svg" class="search-icon">
+                </div>
+            </div>
+          <!-- </div> -->
+            <div class="flex-items "><a class="sign-in-btn" href="Firstpage.html" style="color:#000000">Sign Out</a> </div>
+            <div class="user-icon" style="font-weight: 600;">VK
+                <div class="red-circle"></div> 
+            </div>   
+        </div>
+    </div>
+    </div>
+
+
+<div class="page-container">
+<div class="maincontents-container">
+    <div class="h1 txt-center">
+        <p>Start Learning With Us Now</p>
+    </div>
+    <div class="h2 txt-center">
+        <p> LT E-learning empowers you to upgrade your skills. Develop critical tech skills. Cut cycle times. Build happier, healthier tech teams.</p>
+    </div>
+    <div class="bt">
+        <button class="button-text" ><a href="course-catergory.html" style="text-decoration: none; color: #000000;">Course Category</a> <svg xmlns="http://www.w3.org/2000/svg" width="13.997" height="15.031" viewBox="0 0 13.997 15.031" class="arrow-icon">
+            <path id="rightarrow" class="black-arrow" d="M18.455,9.883,7.063,4.143A1.048,1.048,0,0,0,5.5,4.876a.82.82,0,0,0,.08.326l2.169,5.24a3.878,3.878,0,0,1,.176,1.074,3.875,3.875,0,0,1-.176,1.074L5.58,17.83a.82.82,0,0,0-.08.326,1.048,1.048,0,0,0,1.562.732l11.393-5.74a1.8,1.8,0,0,0,0-3.265Z" transform="translate(-5.5 -4)" fill-rule="evenodd" fill="black"/>
+          </svg></button>
+    </div>
+      <div class="fle">
+        <div class="p1">
+            <div class="marg count1">0K+</div>
+            <div>Certified</div>
+        </div>
+        <div class="p2">
+            <div class="marg count2">0K+</div>
+            <div>Students</div>
+        </div>
+        <div class="p3">
+            <div class="marg count3">0K+</div>
+            <div>Teachers</div>
+        </div>
+    </div>
+    <div class="play">
+        <div ><img src="../images/play.svg" class="play-logo"></div>
+      </div>
+      <div class="play-content">
+        <p style="color: white;">Click <span style="color: #54FF00; margin:0px 5px">PLAY</span>for Demo Lecture</p>
+      </div>
+    </div>
+    <div  class="aboutus-box bold1">About us
+        <div style="position: absolute; right: -10px; top: 0; bottom: 0; width: 20px; background: inherit; transform: skewX(-30deg);"></div>
+    </div>
+        <div class="content-2 ">
+            <div class="about-img"><img src="../images/aboutus.png"></div>
+            <div class="about-us app">
+                <span class="bold1">About LT Learning HUB</span>
+              <p>Welcome to LT Learning HUB, your gateway to a world of knowledge and skill development! At LT Learning HUB, we are passionate about education and committed to providing high-quality e-learning solutions that empower learners worldwide.</p>
+            </div>
+            <div class="mission-img"><img src="../images/mission.png"></div>
+            <div class="mission app">
+            <span class="bold1">Our Mission</span><br>
+              <p>Our mission is to make learning accessible, engaging, and effective for everyone. We believe that education is the key to personal and professional growth, and we strive to create a platform where learners can discover their full potential.</p>
+            </div>
+            <div class="whoweare-img"><img src="../images/who we are.png"></div>
+            <div class="whoweare app">
+            <span class="bold1">Who we are</span>
+              <p>LT Learning HUB is a team of dedicated educators, content creators, and technology enthusiasts who have come together with a shared vision of revolutionizing the way people learn. 
+            </p>
+            </div>
+        </div>
+        </div>
+</div>
+<div  class="pricing-box bold1">Pricing
+    <div style="position: absolute; right: -10px; top: 0; bottom: 0; width: 20px; background: inherit; transform: skewX(-30deg);"></div>
+</div>
+<div class="pricing-container">
+    
+    <div class="basic">
+        <h3 class="head"> Basic plan</h3>
+        <div class="cir1">Rs.499/m</div>
+        <ul>
+            <li>>Access to a selection of foundational courses</li>
+            <li>>Limited access to Quizzes</li>
+            <li>>Standard Customer support</li>
+        </ul>
+        <button class="but1">Select</button>
+    </div>
+    <div class="pro">  
+        <h3 class="head">Pro plan</h3>
+        <div class="cir2">Rs.2999/m</div>
+        <div class="p1">
+        </div>
+        <div class="p2">
+            <ul1>
+                <li>>Full access to a broad range of courses</li>
+                <li>>Interactive quizzes and assignment</li>
+                <li>>Priority customer support</li>
+                <li>>Progress tracking and certificates ideas for students and professionals looking to upskill and explore a variety of courses</li>
+            </ul1>
+        </div>
+        <button class="but2">Select</button>
+    </div>
+    <div class="premium">
+        <h3 class="head">Premium plan</h3>
+        <div class="cir3">Rs.799/m</div>
+        <ul>
+            <li>>All features from Standard plan</li>
+            <li>>Exclusive access to premium courses</li>
+            <li>>Dedicated mentor support</li>
+        </ul>
+        <button class="but3">Select</button>
+    </div></div>
+
+<div  class="contactus-box bold1">Contact us
+    <div style="position: absolute; right: -10px; top: 0; bottom: 0; width: 20px; background: inherit; transform: skewX(-30deg);"></div>
+</div>
+<div class="contact-container">
+<div class="contactus-outerbox">
+    <div class="contactus">
+      <p class="conct1" style="display:flex; position:relative;align-items:center;left:15px;margin:0;font-weight:350;font-size:25px;">Get in Touch</p>
+      <p class="conct1"  style="display:flex; position:relative;align-items:center;left:15px;font-style:italic; margin:0">Feel free to drop us</p>
+      <form>
+        <div class="conct"><input type="text" id="fname" name="firstname" placeholder="Enter your name here."></div>
+        <div class="conct"><input type="text" id="lname" name="lastname" placeholder="Enter your email here."></div>
+        <div class="conct"><textarea id="subject" name="subject" placeholder="Enter your message here." style="height:100px;width:369px"></textarea></div>
+        <div class="conct"><button class="b" style="display:flex; position:relative;justify-content:center;align-items:center;left:130px;background-color:white;border: black;">Send</button></div>
+      </form>
+    </div>
+    
+   
+</div>
+<div class="contactus-2">
+    
+    <div class="contact-leftbox">
+        <p class="conct-head">Contact us</p>
+        <div>
+            <img src="../images/email.svg">
+            <div class="write">info@learninghub.com</div>
+        </div>
+        <div>
+            <img src="../images/fb.svg">
+            <div class="write">Facebook: LT Learning HUB Facebook</div>
+        </div>
+        <div>
+            <img src="../images/twitter.svg">
+            <div class="write">Twitter: LT Learning HUB Twitter</div>
+        </div>
+        <div>
+            <img src="../images/insta.svg">
+            <div class="write">Instagram: LT Learning HUB Twitter</div>
+        </div>
+        <div>
+            <img src="../images/location.svg">
+            <div class="write">Headquarters:
+                LT Learning HUB
+                123 Education Street
+                Chennai-61
+                India</div>
+        </div>
+</div>
+</div>
+</div>
+
+
+<div class="footer">
+    <div class="l">
+        <p>© 2024 larsen & toubro limited. all rights reserved</p>
+    </div>
+    <div class="r">
+        <p>Copyright & Terms | Privacy Policy | Sitemap</p>
+    </div>
+
+
+
+
+
+    <script>
+       window.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector(".header");
+            if (window.scrollY > 5) {
+                header.classList.add("active");
+            } else {
+                header.classList.remove("active");
+            }
+            });
+        });
+        
+        document.addEventListener("DOMContentLoaded", () => {
+        function counter(className, start, end, duration) {
+            let objs = document.querySelectorAll('.' + className),
+                ranges = [],
+                increments = [],
+                steps = [];
+            objs.forEach((obj, index) => {
+                let current = start[index];
+                ranges.push(end[index] - start[index]);
+                increments.push(end[index] > start[index] ? 1 : -1);
+                steps.push(Math.abs(Math.floor(duration / ranges[index])));
+                let timer = setInterval(() => {
+                    current += increments[index];
+                    obj.textContent = current + "K+"; // Append "K+" to the count value
+                    if (current == end[index]) {
+                        clearInterval(timer);
+                    }
+                }, steps[index]);
+            });
+        }
+        counter("count1", [0], [400], 3000);
+        counter("count2", [100], [500], 2500);
+        counter("count3", [0], [400], 3000);
+         });
+
+
+
+        function handleScroll() {
+        const contactForm = document.querySelector('.contactus');
+        const contactInfo = document.querySelector('.contact-leftbox');
+        const formBounding = contactForm.getBoundingClientRect();
+        const infoBounding = contactInfo.getBoundingClientRect();
+        if (
+            formBounding.top >= 0 &&
+            formBounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+            contactForm.classList.add('animate');
+        }
+
+        if (
+            infoBounding.top >= 0 &&
+            infoBounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+            contactInfo.classList.add('animate');
+        }
+        }
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const ab = document.querySelector('.about-us'); 
+        const mis = document.querySelector('.mission');
+        const wwa = document.querySelector('.whoweare');
+        const abimg = document.querySelector('.about-img');
+        const misimg = document.querySelector('.mission-img');
+        const wwaimg = document.querySelector('.whoweare-img');
+        const contus = document.querySelector('.contactus');
+        const contusl = document.querySelector('.contact-leftbox');
+
+        
+
+        abimg.classList.remove('ab-img-transition');
+        misimg.classList.remove('mission-img-transition');
+        wwaimg.classList.remove('wwa-img-transition');
+        ab.classList.remove('ab-transition');
+        mis.classList.remove('mission-transition');
+        wwa.classList.remove('wwa-transition');
+        contus.classList.remove('contactus-transition');
+        contusl.classList.remove('contact-leftbox');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                abimg.classList.add('ab-img-transition');
+                misimg.classList.add('mission-img-transition');
+                wwaimg.classList.add('wwa-img-transition');
+                ab.classList.add('ab-transition');
+                mis.classList.add('mission-transition');
+                wwa.classList.add('wwa-transition');
+                contus.classList.add('contactus-transition');
+                contusl.classList.add('contact-leftbox');
+            } else {
+                abimg.classList.remove('ab-img-transition');
+                misimg.classList.remove('mission-img-transition');
+                wwaimg.classList.remove('wwa-img-transition');
+                ab.classList.remove('ab-transition');
+                mis.classList.remove('mission-transition');
+                wwa.classList.remove('wwa-transition');
+                contus.classList.remove('contactus-transition');
+                contusl.classList.remove('contact-leftbox');
+            }
+            });
+        });
+
+        observer.observe(abimg);
+        observer.observe(misimg);
+        observer.observe(wwaimg);
+        observer.observe(ab);
+        observer.observe(mis);
+        observer.observe(wwa);
+        observer.observe(contus);
+        observer.observe(contusl);
+        });
+      </script>
+</div>
+</body>
+</html>
